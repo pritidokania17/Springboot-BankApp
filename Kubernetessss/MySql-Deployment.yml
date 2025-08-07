@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: MySql-deployment
+  labels:
+     app: MySql-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: MySql-deployment
+  template:
+    metadata:
+      labels:
+        app: MySql-deployment
+    spec:
+      containers:
+      - name: BankApp-mysql
+        image: priti17/mysql:latest
+        ports:
+        - containerPort: 3306
+    VolumeMounts:
+      - name: mysql-pv
+        mount: /var/lib/mysql
+        sub-Path: mysql-data
+  Volumes:
+     - name: mysql-pvc
+       persistentVolumeClaim:
+        ClaimName: mysql-pvc
