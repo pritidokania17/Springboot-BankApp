@@ -4,7 +4,7 @@ metadata:
   name: MySql-deployment
   namespace: BankApp-namespace
   labels:
-     app: MySql-deployment
+    app: MySql-deployment
 spec:
   replicas: 1
   selector:
@@ -16,15 +16,16 @@ spec:
         app: MySql-deployment
     spec:
       containers:
-      - name: BankApp-mysql
-        image: priti17/mysql:latest
-        ports:
-        - containerPort: 3306
-    VolumeMounts:
-      - name: mysql-pv
-        mount: /var/lib/mysql
-        sub-Path: mysql-data
-  Volumes:
-     - name: mysql-pvc
-       persistentVolumeClaim:
-         claimName: mysql-pvc
+        - name: BankApp-mysql
+          image: priti17/mysql:latest
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - name: mysql-pv
+              mountPath: /var/lib/mysql
+              subPath: mysql-data
+      volumes:
+        - name: mysql-pv
+          persistentVolumeClaim:
+            claimName: mysql-pvc
+
