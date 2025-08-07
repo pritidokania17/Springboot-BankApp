@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: BankApp
-        image: priti17/BankApp:latest
+        image: priti17/bankapp_eks:v1
 
         resources:
           limits:
