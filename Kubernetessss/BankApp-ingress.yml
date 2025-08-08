@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bankapp-ingress
+  namespace: bankapp-namespace
+spec:
+  rules:
+    - host: bankapp.example.com  # Replace with your domain or use external IP for /etc/hosts mapping
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: bankapp-service   # Replace with your actual service name
+                port:
+                  number: 8080          # Replace with your service's port
