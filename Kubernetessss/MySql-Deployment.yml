@@ -29,7 +29,7 @@ spec:
         - name: MYSQL_DATABASE
           valueFrom:
             configMapKeyRef:
-              name: bankapp-config
+              name: bankapp-configmap
               key: MYSQL_DATABASE
         volumeMounts:
         - name: mysql-pv-storage
