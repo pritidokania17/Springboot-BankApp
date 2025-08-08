@@ -1,8 +1,8 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: Bankapp-hpa
-  namespace: BankApp-namespace
+  name: bankapp-hpa
+  namespace: bankapp-namespace
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
@@ -11,9 +11,10 @@ spec:
   minReplicas: 1
   maxReplicas: 4
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 40
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 40
+
