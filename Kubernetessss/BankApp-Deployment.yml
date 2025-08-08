@@ -29,7 +29,7 @@ spec:
         - name: SPRING_DATASOURCE_USERNAME
           valueFrom:
             configMapKeyRef:
-              name: bankapp-config
+              name: bankapp-configmap
               key: SPRING_DATASOURCE_USERNAME
         - name: MYSQL_DATABASE
           valueFrom:
