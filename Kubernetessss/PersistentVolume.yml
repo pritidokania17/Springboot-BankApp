@@ -12,4 +12,5 @@ spec:
   storageClassName: standard
   hostPath:
     path: /mnt/data/mysql
-    type: DirectoryorCreate
+    type: DirectoryOrCreate
+
