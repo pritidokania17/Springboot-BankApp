@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: BankApp-Deployment
-  namespace: BankApp-namespace
+  name: bankapp-deployment
+  namespace: bankapp-namespace
   labels:
-     app: bankapp-deploy
+    app: bankapp-deploy
 spec:
   replicas: 2
   selector:
@@ -16,12 +16,11 @@ spec:
         app: bankapp-deploy
     spec:
       containers:
-      - name: BankApp
+      - name: bankapp
         image: priti17/bankapp_eks:v1
-
+        ports:
+        - containerPort: 8080
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
-        ports:
-        - containerPort: 8080
