@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: MySql-deployment
-  namespace: BankApp-namespace
+  name: mysql-deployment
+  namespace: bankapp-namespace
   labels:
-    app: MySql-deployment
+    app: mysql
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: MySql-deployment
+      app: mysql
   template:
     metadata:
       labels:
-        app: MySql-deployment
+        app: mysql
     spec:
       containers:
-        - name: BankApp-mysql
+        - name: mysql
           image: priti17/mysql:latest
           ports:
             - containerPort: 3306
@@ -28,4 +28,3 @@ spec:
         - name: mysql-pv
           persistentVolumeClaim:
             claimName: mysql-pvc
-
