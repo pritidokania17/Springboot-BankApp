@@ -1,5 +1,5 @@
 #####Stage1#############
-FROM maven:3.8.3 as builder
+FROM maven:3.8.3 AS builder
 WORKDIR /app
 COPY . /app
 RUN mvn clean install  -DskipTests
